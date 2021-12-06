@@ -5,15 +5,15 @@ import java.awt.Graphics;
 import java.util.ArrayList;
 
 import controller.Settings;
-import engine.ColorTools;
-import engine.Pair;
-import engine.PhysTools;
 import engine.PhysToolsMore;
-import engine.Vector2;
+import models.Pair;
+import models.Vector2;
 import shapes.Circle;
 import shapes.Pill;
 import shapes.Polygon;
 import shapes.Shape;
+import tools.ColorTools;
+import tools.PhysTools;
 
 public class World {
 

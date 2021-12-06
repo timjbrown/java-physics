@@ -2,9 +2,9 @@ package controller;
 
 import java.awt.Color;
 
-import engine.Rectangle;
-import engine.Vector2;
 import model.Walls;
+import models.Rectangle;
+import models.Vector2;
 
 public class Settings {
     public static final int FRAME_TIME = 10; // in milliseconds

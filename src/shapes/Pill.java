@@ -5,7 +5,7 @@ import java.awt.Graphics2D;
 import java.awt.Polygon;
 import java.awt.RenderingHints;
 
-import engine.Vector2;
+import models.Vector2;
 
 public class Pill extends Shape {
 

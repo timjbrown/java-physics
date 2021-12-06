@@ -1,6 +1,6 @@
 package shapes;
 
-import engine.Vector2;
+import models.Vector2;
 
 public class Polygon extends Shape {
 

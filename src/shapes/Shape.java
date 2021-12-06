@@ -5,9 +5,9 @@ import java.awt.Graphics;
 import java.util.ArrayList;
 
 import controller.Settings;
-import engine.CircleBody;
-import engine.DrawTools;
-import engine.Vector2;
+import models.CircleBody;
+import tools.DrawTools;
+import models.Vector2;
 
 public class Shape extends CircleBody {
 
@@ -55,11 +55,11 @@ public class Shape extends CircleBody {
     public void draw(Graphics g) {
         if (selected) {
             g.setColor(Settings.selectedColor);
-            DrawTools.fillCenteredCircle(g, getRadius() + 2, getPos().getX(),
+            DrawTools.fillCircle(g, getRadius() + 2, getPos().getX(),
                     getPos().getY());
         }
         g.setColor(getColor());
-        DrawTools.fillCenteredCircle(g, getRadius(), getPos().getX(),
+        DrawTools.fillCircle(g, getRadius(), getPos().getX(),
                 getPos().getY());
         for (Shape c : children)
             c.draw(g);

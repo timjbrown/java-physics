@@ -3,7 +3,7 @@ package shapes;
 import java.awt.Color;
 import java.awt.Graphics;
 
-import engine.Vector2;
+import models.Vector2;
 
 public class Circle extends Shape {
 

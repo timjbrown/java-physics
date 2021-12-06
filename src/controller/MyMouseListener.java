@@ -5,10 +5,10 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseWheelEvent;
 import java.util.Stack;
 
-import engine.Pair;
-import engine.PhysTools;
+import models.Pair;
+import tools.PhysTools;
 import engine.PhysToolsMore;
-import engine.Vector2;
+import models.Vector2;
 import model.World;
 import shapes.Circle;
 import shapes.Pill;

@@ -3,10 +3,14 @@ package engine;
 import java.util.ArrayList;
 
 import controller.Settings;
+import models.Pair;
+import models.Rectangle;
+import models.Vector2;
 import shapes.Circle;
 import shapes.Pill;
 import shapes.Polygon;
 import shapes.Shape;
+import tools.PhysTools;
 
 public class PhysToolsMore {
 
@@ -172,7 +176,7 @@ public class PhysToolsMore {
         if (left != null) { // left
             double diff = c.getPos().getX() - left.getPos().getX();
             c.setVel(new Vector2(-c.getVel().getX(), c.getVel().getY()));
-            c.setPos(new Vector2(rect.getP1().getX() + left.getRadius() + diff,
+            c.setPos(new Vector2(rect.getTopLeft().getX() + left.getRadius() + diff,
                     c.getPos().getY()));
             c.setVel(c.getVel().mul(restitution));
             return left;
@@ -181,14 +185,14 @@ public class PhysToolsMore {
             double diff = c.getPos().getY() - top.getPos().getY();
             c.setVel(new Vector2(c.getVel().getX(), -c.getVel().getY()));
             c.setPos(new Vector2(c.getPos().getX(),
-                    rect.getP1().getY() + top.getRadius() + diff));
+                    rect.getTopLeft().getY() + top.getRadius() + diff));
             c.setVel(c.getVel().mul(restitution));
             return top;
         }
         if (right != null) { // right
             double diff = c.getPos().getX() - right.getPos().getX();
             c.setVel(new Vector2(-c.getVel().getX(), c.getVel().getY()));
-            c.setPos(new Vector2(rect.getP2().getX() - right.getRadius() + diff,
+            c.setPos(new Vector2(rect.getBotRight().getX() - right.getRadius() + diff,
                     c.getPos().getY()));
             c.setVel(c.getVel().mul(restitution));
             return right;
@@ -197,7 +201,7 @@ public class PhysToolsMore {
             double diff = c.getPos().getY() - bottom.getPos().getY();
             c.setVel(new Vector2(c.getVel().getX(), -c.getVel().getY()));
             c.setPos(new Vector2(c.getPos().getX(),
-                    rect.getP2().getY() - bottom.getRadius() + diff));
+                    rect.getBotRight().getY() - bottom.getRadius() + diff));
             c.setVel(c.getVel().mul(restitution));
             return bottom;
         } else if (!Settings.walls.isSouthWall() && teleportBottom(rect, c)) {
@@ -219,7 +223,7 @@ public class PhysToolsMore {
                     return result;
             }
         }
-        if (s.getPos().getX() - s.getRadius() < rect.getP1().getX())
+        if (s.getPos().getX() - s.getRadius() < rect.getTopLeft().getX())
             return s;
         return null;
     }
@@ -236,7 +240,7 @@ public class PhysToolsMore {
                     return result;
             }
         }
-        if (s.getPos().getX() + s.getRadius() > rect.getP2().getX())
+        if (s.getPos().getX() + s.getRadius() > rect.getBotRight().getX())
             return s;
         return null;
     }
@@ -253,7 +257,7 @@ public class PhysToolsMore {
                     return result;
             }
         }
-        if (s.getPos().getY() - s.getRadius() < rect.getP1().getY())
+        if (s.getPos().getY() - s.getRadius() < rect.getTopLeft().getY())
             return s;
         return null;
     }
@@ -270,7 +274,7 @@ public class PhysToolsMore {
                     return result;
             }
         }
-        if (s.getPos().getY() + s.getRadius() > rect.getP2().getY())
+        if (s.getPos().getY() + s.getRadius() > rect.getBotRight().getY())
             return s;
         return null;
     }
@@ -287,6 +291,6 @@ public class PhysToolsMore {
                     return false;
             }
         }
-        return s.getPos().getY() + s.getRadius() > rect.getP2().getY();
+        return s.getPos().getY() + s.getRadius() > rect.getBotRight().getY();
     }
 }
